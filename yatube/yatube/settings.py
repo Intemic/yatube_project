@@ -27,11 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Application definition
 
 INSTALLED_APPS = [
-    'post.apps.PostConfig',
+    'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'yatube.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
