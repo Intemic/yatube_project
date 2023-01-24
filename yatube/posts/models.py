@@ -29,10 +29,10 @@ class Post(models.Model):
         related_name='posts'
     )
     group = models.ForeignKey(
-       Group,
-       verbose_name='Сообщество',
-       on_delete=models.SET_NULL,
-       blank=True,
-       null=True,
-       related_name='posts'
+        Group,
+        verbose_name='Сообщество',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='posts'
     )
