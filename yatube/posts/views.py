@@ -13,7 +13,7 @@ def index(request: HttpRequest) -> HttpResponse:
     # отсортированных по полю pub_date по убыванию
     posts = Post.objects.order_by('-pub_date')[:NUMBER_OF_RECORD_FETCH]
     template = 'posts/index.html'
-    title = 'Это главная страница проекта Yatube'
+    title = 'Последние обновления на сайте'
     context = {
         'title': title,
         'posts': posts,
