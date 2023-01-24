@@ -9,6 +9,7 @@ class GroupAdmin(admin.ModelAdmin):
         'description',
     )
     search_fields = ('title',)
+    empty_value_display = '-пусто-'
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -24,6 +25,7 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('text', )
     # Добавляем возможность фильтрации по дате
     list_filter = ('pub_date',)
+    empty_value_display = '-пусто-'
 
 
 # Register your models here.
