@@ -1,15 +1,12 @@
-from django.db import models
-
 from django.contrib.auth import get_user_model
-
-# Create your models here.
+from django.db import models
 
 User = get_user_model()
 
 
 class Group(models.Model):
     title = models.CharField(verbose_name='Имя', max_length=200)
-    slug = models.SlugField(verbose_name='Адрес', unique=True)
+    slug = models.SlugField(verbose_name='Идентификатор', unique=True)
     description = models.TextField(verbose_name='Описание')
 
     def __str__(self) -> str:

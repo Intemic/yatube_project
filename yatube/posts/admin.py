@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Group, Post
 
 
@@ -13,7 +14,6 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    # Перечисляем поля, которые должны отображаться в админке
     list_display = (
         'pk',
         'text',
@@ -22,13 +22,10 @@ class PostAdmin(admin.ModelAdmin):
         'group',
     )
     list_editable = ('group',)
-    # Добавляем интерфейс для поиска по тексту постов
     search_fields = ('text', )
-    # Добавляем возможность фильтрации по дате
     list_filter = ('pub_date',)
     empty_value_display = '-пусто-'
 
 
-# Register your models here.
 admin.site.register(Post, PostAdmin)
 admin.site.register(Group, GroupAdmin)
