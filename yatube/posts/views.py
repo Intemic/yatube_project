@@ -7,7 +7,9 @@ NUMBER_OF_RECORD_FETCH = 10
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    posts = Post.objects.order_by('-pub_date')[:NUMBER_OF_RECORD_FETCH]
+    posts = Post.objects.select_related('author', 'group').all()[
+        :NUMBER_OF_RECORD_FETCH
+    ]
     context = {
         'posts': posts,
     }
@@ -16,7 +18,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def group_posts(request: HttpRequest, slug: str) -> HttpResponse:
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[
+    posts = Post.objects.filter(group=group)[
         :NUMBER_OF_RECORD_FETCH
     ]
     context = {
